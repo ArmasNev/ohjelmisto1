@@ -6,7 +6,7 @@
 login = input("Anna käyttäjätunnuksessi: ")
 password = input("Anna salasana: ")
 tries = 0
-while login != "python" and password != "rules":
+while login != "python" or password != "rules":
     tries = tries + 1
     login = input("Anna käyttäjätunnuksessi: ")
     password = input("Anna salasana: ")

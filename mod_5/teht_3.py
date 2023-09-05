@@ -1,3 +1,4 @@
+
 luku = int(input("Anna kokonais luku: "))
 alkuluku = True
 for luku1 in range(2,luku):

@@ -1,3 +1,4 @@
+
 luvut = []
 luku = (input("Anna luku: "))
 while luku!=(""):

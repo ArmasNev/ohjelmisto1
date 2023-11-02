@@ -1,8 +1,7 @@
 class Auto:
-    def __init__(self, input_rekkari, input_huiput, input_kulutus):
+    def __init__(self, input_rekkari, input_huiput):
         self.rekisteritunnus = input_rekkari
         self.huippunopeus = input_huiput
-        self.kulutus = input_kulutus
         self.nopeus = 0
         self.matka = 0
 
@@ -17,33 +16,42 @@ class Auto:
         self.matka += self.nopeus * tunnit
 
     def kulutettu(self):
-        return self.kulutus * self.matka / 100
+        return self.consumption * self.matka / 100
+
 
     def aseta_matka(self, kilometrit):
         self.matka = kilometrit
 
 class ElectricCar(Auto):
 
-    def __init__(self, input_rekkari, input_huiput, capasity):
-        super().__init__(input_rekkari, input_huiput, input_kulutus)
+    def __init__(self, input_rekkari, input_huiput, capasity, consumption):
+        super().__init__(input_rekkari, input_huiput)
         self.capasity = capasity
+        self.consumption = consumption
     def left(self):
-        return(self.caapasity - super().kulutettu())
+        return(self.capasity - self.kulutettu())
+
 
 class GasolineCar(Auto):
 
-    def __init__(self,input_rekkari, input_huiput, tank_vol):
-        super().__init__(input_rekkari, input_huiput, input_kulutus)
+    def __init__(self,input_rekkari, input_huiput, tank_vol, consumption):
+        super().__init__(input_rekkari, input_huiput)
         self.tank_vol = tank_vol
+        self.consumption = consumption
+    def left(self):
+        return(self.tank_vol - self.kulutettu())
+
 
 electric = ElectricCar("ABC-15", 185, 52.5, 20 )
 bens = GasolineCar("ACD-123", 165 , 32.3, 8)
 
-electric.kiihdyta(140)
+electric.kiihdyta(70)
 electric.kulje(3)
-bens.kiihdyta(160)
+electric.left()
+bens.kiihdyta(80)
 bens.kulje(3)
+bens.left()
 
-print(f'''Rekkari: {electric.rekisteritunnus}, huippunopeus: {electric.huippunopeus}, kuljettu matka: {electric.matka}, tämän hetken nopeus: {electric.nopeus}, kulutus: {electric.kulutettu()}''')
+print(f'''Rekkari: {electric.rekisteritunnus}, kuljettu matka: {electric.matka}, tämän hetken nopeus: {electric.nopeus}, sähköa {electric.left()} kWh jäljellä.''')
 
-print(f'''Rekkari: {bens.rekisteritunnus}, huippunopeus: {bens.huippunopeus}, kuljettu matka: {bens.matka}, tämän hetken nopeus: {bens.nopeus}, kulutus: {bens.kulutettu()}''')
+print(f'''Rekkari: {bens.rekisteritunnus}, kuljettu matka: {bens.matka}, tämän hetken nopeus: {bens.nopeus}, bensa {int(bens.left())} l jäljellä.''')

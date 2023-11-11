@@ -13,13 +13,13 @@ switch (rand) {
     clas = 'Griffindor'
     break;
   case 2:
-    clas = 'Griffindor'
+    clas = 'Slytherin'
     break;
   case 3:
-    clas = 'Griffindor'
+    clas = 'Hufflepuff'
     break;
   case 4:
-    clas = 'Griffindor'
+    clas = 'Ravenclaw'
     break;
 }
 

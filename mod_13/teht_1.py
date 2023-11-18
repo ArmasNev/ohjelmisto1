@@ -32,7 +32,7 @@ def prime_number(number):
             "message": "Invalid number as addend",
             "status": 400
         }
-        return Response(response=json.dumps(response), status=400, mimetype="application/json")
+        return Response (response=json.dumps(response), status=400, mimetype="application/json")
 
 if __name__ == '__main__':
     app.run(use_reloader=True, host='127.0.0.1', port=5000)

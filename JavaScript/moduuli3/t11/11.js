@@ -133,7 +133,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function showModal(index) {
     const largeImg = picArray[index].image.large;
+    const altImg = picArray[index].title;
     modalImg.src = largeImg;
+    modalImg.alt = altImg;
     modal.showModal();
   }
 
